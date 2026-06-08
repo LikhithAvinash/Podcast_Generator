@@ -2,6 +2,8 @@
 
 Welcome to the **Podcaster Crew**, an AI-powered multi-agent system built with [crewAI](https://crewai.com) and Gemini. This project automatically researches a topic, summarizes it, writes a short podcast script, and generates a final audio podcast using Google's Gemini Voice API.
 
+https://github.com/LikhithAvinash/Podcast_Generator/assets/your-asset-id/podcast_gen.mp4
+
 ## ✨ Features
 - **Multi-Agent Collaboration**: Uses dedicated agents for Research, Reporting, and Scriptwriting.
 - **Text-to-Speech Pipeline**: Automatically converts the generated script into an audio file.
