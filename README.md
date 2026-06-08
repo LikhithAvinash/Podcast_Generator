@@ -4,10 +4,9 @@ Welcome to the **Podcaster Crew**, an AI-powered multi-agent system built with [
 
 <video src="./podcast_gen.mp4" controls width="100%"></video>
 
+you can listen to the complete podcast also here -[podcast.wav](https://github.com/user-attachments/files/28697462/podcast.wav)
 
 https://github.com/user-attachments/assets/2746d53c-1196-4679-8eca-e644b0636e90
-
-
 
 ## ✨ Features
 - **Multi-Agent Collaboration**: Uses dedicated agents for Research, Reporting, and Scriptwriting.
