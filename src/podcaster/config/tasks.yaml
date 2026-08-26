@@ -1,0 +1,25 @@
+research_task:
+  description: >
+    Find 2 key recent facts about {topic} as of {current_month} {current_year}.
+    Keep it very brief - just 2 bullet points with a one-line summary each.
+  expected_output: >
+    2 bullet points about {topic}, each with a one-line summary. Maximum 100 words total.
+  agent: researcher
+
+reporting_task:
+  description: >
+    Take the 2 research bullet points and write a very short summary paragraph.
+    Keep it under 150 words.
+  expected_output: >
+    A short paragraph summarizing the key points. Maximum 150 words.
+    Formatted as plain text without markdown code blocks.
+  agent: reporting_analyst
+
+scripting_task:
+  description: >
+    Write an extremely short demo podcast script with exactly 6 lines of dialogue
+    between two hosts based on the report. Then pass the script to the gemini voice
+    tool to generate audio.
+  expected_output: >
+    A very short podcast script with exactly 6 lines of dialogue total. Use "Joe" and "Jane" as speaker names. After writing, pass the FULL script text to the gemini_voice_tool to generate audio. Return the audio file path.
+  agent: scriptwriter

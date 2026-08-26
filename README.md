@@ -1,12 +1,9 @@
 # 🎙️ Podcaster Crew
 
-Welcome to the **Podcaster Crew**, an AI-powered multi-agent system built with [crewAI](https://crewai.com) and Gemini. This project automatically researches a topic, summarizes it, writes a short podcast script, and generates a final audio podcast using Google's Gemini Voice API.
-
+## Demo
 <video src="./podcast_gen.mp4" controls width="100%"></video>
 
-you can listen to the complete podcast also here -[podcast.wav](https://github.com/user-attachments/files/28697462/podcast.wav)
-
-https://github.com/user-attachments/assets/2746d53c-1196-4679-8eca-e644b0636e90
+Welcome to the **Podcaster Crew**, an AI-powered multi-agent system built with [crewAI](https://crewai.com) and Gemini. This project automatically researches a topic, summarizes it, writes a short podcast script, and generates a final audio podcast using Google's Gemini Voice API.
 
 ## ✨ Features
 - **Multi-Agent Collaboration**: Uses dedicated agents for Research, Reporting, and Scriptwriting.
@@ -27,7 +24,7 @@ https://github.com/user-attachments/assets/2746d53c-1196-4679-8eca-e644b0636e90
    ```bash
    uv sync
    # OR
-   crewai install
+   crewai install 
    ```
 
 3. **Environment Setup**:

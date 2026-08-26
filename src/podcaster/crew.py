@@ -2,7 +2,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task, before_kickoff
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
-from .tools import search_tool, file_writer_tool, file_read_tool, gemini_voice_tool
+from .tools import file_writer_tool, file_read_tool, gemini_voice_tool, web_search_tool
 import os
 from datetime import datetime
 
@@ -17,6 +17,8 @@ class Podcaster():
     agents: List[BaseAgent]
     tasks: List[Task]
 
+
+
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
     # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
@@ -28,7 +30,10 @@ class Podcaster():
         return Agent(
             config=self.agents_config['researcher'], # type: ignore[index]
             verbose=True,
-            # tools=[search_tool, file_writer_tool, file_read_tool]
+            max_iter=2,
+            allow_delegation=False,
+            max_tokens=300,  # Cap output tokens to save quota
+            tools=[web_search_tool],
         )
 
     @agent
@@ -36,7 +41,9 @@ class Podcaster():
         return Agent(
             config=self.agents_config['reporting_analyst'], # type: ignore[index]
             verbose=True,
-            # tools=[file_writer_tool, file_read_tool]
+            max_iter=2,
+            allow_delegation=False,
+            max_tokens=400,  # Cap output tokens to save quota
         )
 
     @agent
@@ -44,6 +51,9 @@ class Podcaster():
         return Agent(
             config=self.agents_config['scriptwriter'], # type: ignore[index]
             verbose=True,
+            max_iter=3,  # Slightly more since it needs to call the voice tool
+            allow_delegation=False,
+            max_tokens=500,  # Cap output tokens to save quota
             tools=[file_writer_tool, file_read_tool, gemini_voice_tool]
         )
     
@@ -91,5 +101,6 @@ class Podcaster():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
+            max_rpm=10,  # Rate-limit to 10 requests/min to stay under free-tier quota
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
